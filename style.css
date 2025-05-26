@@ -1,25 +1,43 @@
+:root {
+    --main-bg: #faf6f6;
+    --accent: #f0f0f0;
+    --accent-hover: #a93226;
+    --text-dark: #4d2e0d;
+    --text-muted: #774e4e;
+    --highlight: #986262;
+    --font-main: 'Georgia', serif;
+    --font-decor: 'Pacifico', ;
+}
+
+body {
+    margin: 0;
+    font-family: var(--font-main);
+    background: url('background.png') center/cover no-repeat fixed;
+    color: var(--text-dark);
+}
+
 .container {
     max-width: 700px;
     margin: auto;
     text-align: center;
     padding: 60px 20px;
-    background-color: #faf6f6;
-    /* насыщенный красный фон */
+    background-color: var(--main-bg);
     border-radius: 20px;
-    box-shadow: 0 8px 20px rgb(112, 57, 57);
-    color: rgb(143, 19, 19);
+    box-shadow: 0 8px 20px rgba(112, 57, 57, 0.3);
+    color: var(--highlight);
+    /* Обратите внимание, что основной текст в .container будет этим цветом */
 }
 
 .names {
-    font-family: 'Marck Script', cursive;
+    font-family: var(--font-decor);
     font-size: 48px;
     color: #985656;
 }
 
 .invite {
     font-size: 20px;
-    margin-bottom: 30px;
-    color: #774e4e;
+    margin-bottom: 20px;
+    color: var(--text-muted);
 }
 
 .details p {
@@ -28,84 +46,124 @@
     color: #7a4c4c;
 }
 
-.btn {
-    background: #e8e3e3;
-    color: #fff;
-    padding: 12px 24px;
-    border: none;
-    border-radius: 30px;
-    text-decoration: none;
-    font-size: 16px;
+/* Кнопка */
+.btn,
+.map-button,
+#rsvp-form button {
     display: inline-block;
-    margin-top: 30px;
-    transition: background 0.3s;
+    padding: 12px 24px;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    border-radius: 12px;
+    text-decoration: none;
+    background-color: var(--accent);
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    margin-top: 20px;
 }
 
-.btn:hover {
-    background: #f0eaea;
+.btn:hover,
+.map-button:hover,
+#rsvp-form button:hover {
+    background-color: var(--accent-hover);
+    transform: translateY(-2px);
 }
 
-/* Фото с красным фоном */
-
-.ayna-photo {
-    display: block;
-    max-width: 200px;
-    border-radius: 50%;
-    border: 5px solid #ded6d6;
-    /* ярко-красная рамка */
-    margin: 20px auto 40px auto;
-    box-shadow: 0 4px 15px rgb(236, 233, 233);
-    background-color: #f1ebeb;
-    /* фон под фото */
-    padding: 5px;
+.map-button {
+    display: flex;
+    /* Используем flex для выравнивания иконки и текста */
+    align-items: center;
+    justify-content: center;
+    /* Центрируем содержимое кнопки */
+    gap: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
+.map-icon {
+    font-size: 18px;
+}
+
+/* RSVP - Обновленная секция */
 .rsvp {
-    background-color: #fff0f0;
-    padding: 40px 20px;
-    margin-top: 60px;
+    background-color: rgba(255, 255, 255, 0.85);
+    /* Полупрозрачный фон */
+    padding: 30px;
+    margin: 60px auto;
+    /* Центрирование и отступы */
+    max-width: 600px;
+    /* Ограничение ширины */
     text-align: center;
     border-radius: 20px;
-    box-shadow: 0 4px 10px rgba(167, 0, 0, 0.3);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    /* Тень как у календаря/таймера */
 }
 
-form {
+/* Заголовок для секции RSVP */
+.rsvp h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+    color: var(--text-dark);
+    font-family: var(--font-main);
+}
+
+/* Стили для формы внутри .rsvp */
+#rsvp-form {
+    /* Применяем стили напрямую к форме по ID */
     max-width: 400px;
-    margin: auto;
+    /* Форма будет немного уже, чем блок .rsvp */
+    margin: 0 auto;
+    /* Центрируем форму внутри .rsvp */
 }
 
-input,
-select {
+/* Обновленные стили для полей ввода в форме RSVP */
+#rsvp-form input[type="text"],
+#rsvp-form select {
     width: 100%;
     padding: 12px;
-    margin: 10px 0;
+    margin: 10px 0 20px 0;
+    /* Нижний отступ увеличен для кнопки */
     border-radius: 10px;
-    border: 1px solid #cc6666;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    /* Более мягкая рамка */
+    background-color: rgba(255, 255, 255, 0.7);
+    /* Слегка полупрозрачный фон */
     font-size: 16px;
+    font-family: var(--font-main);
+    /* Убедимся, что шрифт основной */
+    color: var(--text-dark);
+    box-sizing: border-box;
 }
 
-button {
-    background-color: #eae1e1;
-    color: white;
-    padding: 12px 20px;
-    border: none;
-    border-radius: 20px;
-    font-size: 16px;
-    cursor: pointer;
-    transition: background 0.3s;
+#rsvp-form input[type="text"]::placeholder {
+    color: var(--text-muted);
 }
 
-button:hover {
-    background-color: #f6e0e0;
+#rsvp-form select {
+    appearance: none;
+    /* Убираем стандартную стрелку */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    /* Замените SVG data URI на URL вашего файла со стрелкой или используйте этот: */
+    /* Немного измененная стрелка, цвет соответствует --text-dark, размер чуть меньше */
+    background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%234d2e0d%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.4-12.8z%22%2F%3E%3C%2Fsvg%3E');
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    background-size: 10px;
+    /* Размер стрелки */
+    padding-right: 35px;
+    /* Дополнительное место справа для стрелки */
 }
 
-footer {
-    text-align: center;
-    padding: 20px;
-    font-style: italic;
-    color: #d9c2c2;
+#rsvp-form option {
+    background-color: #fff;
+    /* Фон для опций, чтобы были читаемы */
+    color: var(--text-dark);
 }
 
+
+/* Hero */
 .hero {
     position: relative;
     width: 100%;
@@ -127,7 +185,7 @@ footer {
     transform: translate(-50%, -50%);
     color: white;
     text-align: center;
-    font-family: 'Marck Script', cursive;
+    font-family: var(--font-decor);
 }
 
 .hero-text h1 {
@@ -144,16 +202,23 @@ footer {
     text-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
 }
 
+/* Countdown */
 .countdown-section {
     text-align: center;
-    margin: 60px 0;
+    margin: 60px auto;
     background-color: rgba(255, 255, 255, 0.85);
     border-radius: 16px;
     padding: 20px;
     max-width: 600px;
-    margin-left: auto;
-    margin-right: auto;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.countdown-section h2 {
+    /* Добавил стиль для заголовка таймера для единообразия */
+    font-size: 22px;
+    /* Можно настроить */
+    color: var(--text-dark);
+    margin-bottom: 15px;
 }
 
 #countdown {
@@ -167,26 +232,16 @@ footer {
 
 #countdown div {
     text-align: center;
-    color: #ecdddd;
+    color: var(--text-muted);
 }
 
 #countdown span {
     font-size: 36px;
     display: block;
-    color: #986262;
+    color: var(--highlight);
 }
 
-body {
-    margin: 0;
-    font-family: 'Georgia', serif;
-    background-image: url('background.png');
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-attachment: fixed;
-    color: #4d2e0d;
-}
-
+/* Calendar */
 .calendar-full-container {
     background-color: rgba(255, 255, 255, 0.85);
     padding: 30px;
@@ -195,12 +250,13 @@ body {
     margin: 60px auto;
     text-align: center;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-    color: #5c2c0c;
-    font-family: 'Georgia', serif;
 }
 
 .calendar-title {
     font-size: 28px;
+    /* Уже было, соответствует .rsvp h2 */
+    color: var(--text-dark);
+    /* Добавил для уверенности */
     margin-bottom: 10px;
 }
 
@@ -208,6 +264,7 @@ body {
     font-size: 18px;
     margin-bottom: 20px;
     color: #a35a2a;
+    /* Оставляем этот специфичный цвет или меняем на var(--text-muted) */
 }
 
 .calendar-grid {
@@ -226,14 +283,18 @@ body {
 .calendar-day-name {
     font-weight: bold;
     background-color: rgba(255, 255, 255, 0.4);
+    color: var(--text-dark);
+    /* Добавил для читаемости дней недели */
 }
 
 .calendar-day {
     background-color: rgba(255, 255, 255, 0.3);
+    color: var(--text-dark);
+    /* Добавил для читаемости чисел */
 }
 
 .calendar-day.highlight {
-    background-color: #c0392b;
+    background-color: var(--accent);
     color: white;
     font-weight: bold;
     box-shadow: 0 0 10px rgba(192, 57, 43, 0.6);
@@ -243,62 +304,13 @@ body {
     background-color: transparent;
 }
 
-.map-button {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    background-color: #c0392b;
-    color: white;
-    text-decoration: none;
-    padding: 12px 20px;
-    border-radius: 12px;
-    font-weight: bold;
-    font-size: 16px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-    transition: background-color 0.3s ease, transform 0.2s ease;
-    margin-top: 20px;
+.animate {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
 }
 
-.map-button:hover {
-    background-color: #a93226;
-    transform: translateY(-2px);
-}
-
-.map-icon {
-    font-size: 18px;
-}
-
-.rsvp-container {
-    background-color: rgba(255, 255, 255, 0.9);
-    padding: 30px;
-    border-radius: 20px;
-    max-width: 400px;
-    margin: 40px auto;
-    text-align: center;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-}
-
-#rsvp-form input,
-#rsvp-form select {
-    width: 100%;
-    padding: 12px;
-    margin: 10px 0;
-    border-radius: 10px;
-    border: 1px solid #ccbfbf;
-    font-size: 16px;
-}
-
-#rsvp-form button {
-    background-color: #c0392b;
-    color: white;
-    border: none;
-    padding: 12px 20px;
-    border-radius: 10px;
-    font-size: 16px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-#rsvp-form button:hover {
-    background-color: #a93226;
+.animate.visible {
+    opacity: 1;
+    transform: translateY(0);
 }

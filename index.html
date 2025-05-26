@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Қыз ұзату шақыру</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Marck+Script&family=Open+Sans&display=swap" rel="stylesheet">
+</head>
+
+
+
+<body>
+    <div class="hero">
+        <img src="ayna.jpg" alt="Айна" class="hero-image">
+        <div class="hero-text">
+            <h1>Aina</h1>
+            <p>Qyz Uzatu</p>
+        </div>
+    </div>
+
+    <div class="countdown-section">
+        <h2>(Ұзату тойына дейін:):</h2>
+        <div id="countdown">
+            <div><span id="days">00</span>
+                <p>дней</p>
+            </div>
+            <div><span id="hours">00</span>
+                <p>часов</p>
+            </div>
+            <div><span id="minutes">00</span>
+                <p>минут</p>
+            </div>
+            <div><span id="seconds">00</span>
+                <p>секунд</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Устанавливаем дату
+        const targetDate = new Date("2025-08-09T00:00:00").getTime();
+
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const diff = targetDate - now;
+
+            if (diff <= 0) {
+                document.getElementById("countdown").innerHTML = "Ждём вас!";
+                return;
+            }
+
+            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+            document.getElementById("days").innerText = String(days).padStart(2, "0");
+            document.getElementById("hours").innerText = String(hours).padStart(2, "0");
+            document.getElementById("minutes").innerText = String(minutes).padStart(2, "0");
+            document.getElementById("seconds").innerText = String(seconds).padStart(2, "0");
+        }
+
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
+    </script>
+
+    <div class="container">
+        <h1 class="names">Құрметті қонақтар!</h1>
+        <p class="invite">Құрметті ағайын-туыс,</p>
+        <p class="invite">бауырлар, құда-жекжат,</p>
+        <p class="invite">нағашы-жиен, бөлелер,</p>
+        <p class="invite">дос-жарандар,әріптестер,</p>
+        <p class="invite">көршілер!</p>
+
+
+        <div class="details">
+            <p><strong>📅 Дата:</strong> 9 тамыз 2025</p>
+            <p><strong>📍 Мекен-жайымыз:</strong> <br> "Ержан" мейрамханасы <br> Көкшетау қаласы</p>
+            <p><strong>📍 Мекен-жайымыз:</strong> "Ержан" мейрамханасы <br> Көкшетау қаласы</p>
+            <a href="https://2gis.kz/kokshetau/firm/123456789" target="_blank" class="map-button">
+                <span class="map-icon">🗺️</span> Картада көру
+            </a>
+        </div>
+        <a href="#rsvp" class="btn">Подтвердить участие</a>
+    </div>
+
+    <div class="calendar-full-container">
+        <h2 class="calendar-title">Той күні</h2>
+        <p class="calendar-subtitle">9 Тамыз 2025</p>
+        <div class="calendar-grid">
+            <div class="calendar-day-name">Дс</div>
+            <div class="calendar-day-name">Сс</div>
+            <div class="calendar-day-name">Ср</div>
+            <div class="calendar-day-name">Бс</div>
+            <div class="calendar-day-name">Жм</div>
+            <div class="calendar-day-name">Сн</div>
+            <div class="calendar-day-name">Жс</div>
+
+            <!-- Пустые ячейки до начала месяца -->
+            <div class="calendar-day empty"></div>
+            <div class="calendar-day empty"></div>
+            <div class="calendar-day empty"></div>
+            <div class="calendar-day empty"></div>
+            <div class="calendar-day">1</div>
+            <div class="calendar-day">2</div>
+            <div class="calendar-day">3</div>
+            <div class="calendar-day">4</div>
+            <div class="calendar-day">5</div>
+            <div class="calendar-day">6</div>
+            <div class="calendar-day">7</div>
+            <div class="calendar-day">8</div>
+            <div class="calendar-day highlight">9</div>
+            <div class="calendar-day">10</div>
+            <div class="calendar-day">11</div>
+            <div class="calendar-day">12</div>
+            <div class="calendar-day">13</div>
+            <div class="calendar-day">14</div>
+            <div class="calendar-day">15</div>
+            <div class="calendar-day">16</div>
+            <div class="calendar-day">17</div>
+            <div class="calendar-day">18</div>
+            <div class="calendar-day">19</div>
+            <div class="calendar-day">20</div>
+            <div class="calendar-day">21</div>
+            <div class="calendar-day">22</div>
+            <div class="calendar-day">23</div>
+            <div class="calendar-day">24</div>
+            <div class="calendar-day">25</div>
+            <div class="calendar-day">26</div>
+            <div class="calendar-day">27</div>
+            <div class="calendar-day">28</div>
+            <div class="calendar-day">29</div>
+            <div class="calendar-day">30</div>
+            <div class="calendar-day">31</div>
+        </div>
+    </div>
+
+
+
+
+    <section class="rsvp">
+        <h2>Қатысуыңызды растаңыз</h2>
+        <form id="rsvp-form">
+            <input type="text" id="name" placeholder="Атыңыз" required>
+            <select id="attendance" required>
+                <option value="">Қатысасыз ба?</option>
+                <option value="Барамын">Барамын</option>
+                <option value="Бара алмаймын">Бара алмаймын</option>
+            </select>
+            <button type="submit">Жіберу</button>
+        </form>
+        <p id="confirmation-message" style="margin-top:10px;"></p>
+    </section>
+
+    <script>
+        const botToken = '7832038971:AAHl7Jv_ro9bPd2D7-SJZ1lTZYqaqcRkALs';
+        const chatId = '542313836';
+
+        document.getElementById('rsvp-form').addEventListener('submit', function (e) {
+            e.preventDefault();
+            const name = document.getElementById('name').value.trim();
+            const attendance = document.getElementById('attendance').value;
+
+            const message = `💌 Жауап:\nАты: ${name}\nҚатысуы: ${attendance}`;
+
+            fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    chat_id: chatId,
+                    text: message
+                })
+            })
+                .then(response => {
+                    if (response.ok) {
+                        document.getElementById('confirmation-message').innerText = 'Рақмет! Жауабыңыз жіберілді.';
+                        document.getElementById('rsvp-form').reset();
+                    } else {
+                        document.getElementById('confirmation-message').innerText = 'Қате шықты. Қайта көріңіз.';
+                    }
+                });
+        });
+    </script>
+
+</body>
+
+</html>

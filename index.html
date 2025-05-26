@@ -3,12 +3,10 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Қыз ұзату шақыру</title>
+    <title>Қыз ҳзату шақыру</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Marck+Script&family=Open+Sans&display=swap" rel="stylesheet">
 </head>
-
-
 
 <body>
     <div class="hero">
@@ -19,8 +17,8 @@
         </div>
     </div>
 
-    <div class="countdown-section">
-        <h2>(Ұзату тойына дейін:):</h2>
+    <div class="countdown-section animate">
+        <h2>(Үзату тойына деїін:):</h2>
         <div id="countdown">
             <div><span id="days">00</span>
                 <p>дней</p>
@@ -38,7 +36,6 @@
     </div>
 
     <script>
-        // Устанавливаем дату
         const targetDate = new Date("2025-08-09T00:00:00").getTime();
 
         function updateCountdown() {
@@ -65,7 +62,7 @@
         updateCountdown();
     </script>
 
-    <div class="container">
+    <div class="container animate">
         <h1 class="names">Құрметті қонақтар!</h1>
         <p class="invite">Құрметті ағайын-туыс,</p>
         <p class="invite">бауырлар, құда-жекжат,</p>
@@ -73,19 +70,17 @@
         <p class="invite">дос-жарандар,әріптестер,</p>
         <p class="invite">көршілер!</p>
 
-
         <div class="details">
-            <p><strong>📅 Дата:</strong> 9 тамыз 2025</p>
+            <p><strong>🗓 Дата:</strong> 9 тамыз 2025</p>
             <p><strong>📍 Мекен-жайымыз:</strong> <br> "Ержан" мейрамханасы <br> Көкшетау қаласы</p>
-            <p><strong>📍 Мекен-жайымыз:</strong> "Ержан" мейрамханасы <br> Көкшетау қаласы</p>
-            <a href="https://2gis.kz/kokshetau/firm/123456789" target="_blank" class="map-button">
-                <span class="map-icon">🗺️</span> Картада көру
+            <a href="https://2gis.kz/kokshetau/firm/70000001033946259?m=69.396782%2C53.31314%2F16" target="_blank"
+                class="map-button">
+                <img src="2gis-icon.png" alt="2ГИС" style="width: 40px; height: 40px;">
             </a>
         </div>
-        <a href="#rsvp" class="btn">Подтвердить участие</a>
     </div>
 
-    <div class="calendar-full-container">
+    <div class="calendar-full-container animate">
         <h2 class="calendar-title">Той күні</h2>
         <p class="calendar-subtitle">9 Тамыз 2025</p>
         <div class="calendar-grid">
@@ -97,7 +92,6 @@
             <div class="calendar-day-name">Сн</div>
             <div class="calendar-day-name">Жс</div>
 
-            <!-- Пустые ячейки до начала месяца -->
             <div class="calendar-day empty"></div>
             <div class="calendar-day empty"></div>
             <div class="calendar-day empty"></div>
@@ -136,10 +130,7 @@
         </div>
     </div>
 
-
-
-
-    <section class="rsvp">
+    <section class="rsvp animate">
         <h2>Қатысуыңызды растаңыз</h2>
         <form id="rsvp-form">
             <input type="text" id="name" placeholder="Атыңыз" required>
@@ -162,7 +153,7 @@
             const name = document.getElementById('name').value.trim();
             const attendance = document.getElementById('attendance').value;
 
-            const message = `💌 Жауап:\nАты: ${name}\nҚатысуы: ${attendance}`;
+            const message = `📬 Жауап:\nАты: ${name}\nҚатысуы: ${attendance}`;
 
             fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
                 method: 'POST',
@@ -182,7 +173,19 @@
                 });
         });
     </script>
+    <script>
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
 
+        document.querySelectorAll('.animate').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
 </body>
 
 </html>

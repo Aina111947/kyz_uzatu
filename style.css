@@ -19,31 +19,45 @@ body {
 }
 
 .container {
-    max-width: 700px;
-    margin: auto;
+    width: 90%;
+    max-width: 900px;
+    margin: 0 auto;
     text-align: center;
     padding: 60px 20px;
-    background-color: var(--main-bg);
+    background-color: transparent;
     border-radius: 20px;
-    box-shadow: 0 8px 20px rgba(112, 57, 57, 0.3);
+    /* box-shadow: 0 8px 20px rgba(112, 57, 57, 0.3); */
     color: var(--highlight);
     /* Обратите внимание, что основной текст в .container будет этим цветом */
 }
 
 .names {
-    font-family: var(--font-decor);
-    font-size: 48px;
+    font-family: 'Pacifico';
+    font-size: 56px;
     color: #985656;
 }
 
+.bride-name {
+    font-family: 'Marck Script', cursive;
+    /* Или var(--font-decor) или другой 'красивый' шрифт */
+    font-size: 72px;
+    /* Подберите подходящий крупный размер */
+    color: #985656;
+    /* Можно такой же цвет, как у .names, или другой акцентный */
+    margin-top: 15px;
+    /* Возможно, понадобятся отступы */
+    margin-bottom: 15px;
+}
+
 .invite {
-    font-size: 20px;
+    font-family: 'Open Sans';
+    font-size: 36px;
     margin-bottom: 20px;
     color: var(--text-muted);
 }
 
 .details p {
-    font-size: 18px;
+    font-size: 39px;
     margin: 10px 0;
     color: #7a4c4c;
 }
@@ -54,10 +68,10 @@ body {
 #rsvp-form button {
     display: inline-block;
     padding: 12px 24px;
-    font-size: 16px;
+    font-size: 28px;
     font-weight: bold;
     border: none;
-    border-radius: 12px;
+    border-radius: 18px;
     text-decoration: none;
     background-color: var(--accent);
     color: #fff;
@@ -192,14 +206,14 @@ body {
 }
 
 .hero-text h1 {
-    font-size: 150px;
+    font-size: 140px;
     margin: 0;
     letter-spacing: 2px;
     text-shadow: 0 2px 8px rgba(0, 0, 0, 0.7);
 }
 
 .hero-text p {
-    font-size: 110px;
+    font-size: 88px;
     margin-top: 10px;
     letter-spacing: 1px;
     text-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
@@ -283,8 +297,8 @@ body {
 
 .map-icon-button {
     display: inline-block;
-    width: 48px;
-    height: 48px;
+    width: 100px;
+    height: 100px;
     background-color: white;
     border-radius: 50%;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
@@ -441,14 +455,14 @@ body {
 }
 
 .hosts p {
-    font-size: 20px;
+    font-size: 37px;
     margin-bottom: 5px;
     font-weight: 500;
 }
 
 .hosts h2 {
     font-family: 'Marck Script', cursive;
-    font-size: 45px;
+    font-size: 55px;
     margin: 0;
 }
 
@@ -461,7 +475,7 @@ body {
     border: none;
     padding: 12px 20px;
     border-radius: 50px;
-    font-size: 35px;
+    font-size: 50px;
     cursor: pointer;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
     transition: background-color 0.3s ease;
@@ -470,4 +484,33 @@ body {
 
 .music-btn:hover {
     background-color: #a93226;
+}
+
+@media (max-width: 768px) {
+    .container {
+        width: 95%;
+        padding: 10px;
+    }
+}
+
+
+/* Стили для мобильных устройств */
+@media (max-width: 768px) {
+
+    /* Для экранов шириной 768px и меньше (планшеты и телефоны) */
+    .hero-text p {
+        font-size: 60px;
+        /* Уменьшаем шрифт. Подберите значение, которое вам понравится */
+        /* Возможно, также потребуется немного уменьшить верхний отступ, если текст "слипнется" с "Aina" */
+        /* margin-top: 5px; */
+    }
+}
+
+@media (max-width: 480px) {
+
+    /* Для очень узких экранов (маленькие телефоны) */
+    .hero-text p {
+        font-size: 48px;
+        /* Еще немного уменьшаем шрифт. Подберите значение. */
+    }
 }
